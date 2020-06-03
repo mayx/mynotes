@@ -609,7 +609,7 @@ int main(int argc, char * argv[])
       {
          vals = ldap_get_values_len(ld, entry, attribute);
          for(pos = 0; pos < ldap_count_values_len(vals); pos++)
-            printf("%s: %s\n", attribute, vals[pos]->bv_val);
+            printf("[%s %d]: %s\n", attribute, (int)vals[pos]->bv_len, vals[pos]->bv_val);
          ldap_value_free_len(vals);
          attribute = ldap_next_attribute(ld, entry, ber);
       };
